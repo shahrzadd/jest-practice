@@ -8,13 +8,22 @@ describe('CookbookCli', () => {
       const myCookbookCli = new CookbookCli(myCookbook);
 
       const message = myCookbookCli.add('hotdog', ['meat', 'bread']);
-      
+
       expect(message).toEqual('Successfully added the following recipe: hotdog')
     });
   });
 
   describe('Listing recipes', () => {
     test('should display the correct message listing all of the recipe names', () => {
+      const myCookbook = new Cookbook();
+      const myCookbookCli = new CookbookCli(myCookbook);
+
+      myCookbookCli.add('hotdog', ['meat', 'bread']);
+      myCookbookCli.add('Vanila Cake', ['vanila', 'flour', 'egg']);
+
+      const message = myCookbookCli.list();
+
+      expect(message).toEqual(`You have the following recipes: hotdog,Vanila Cake`)
 
     });
   });
