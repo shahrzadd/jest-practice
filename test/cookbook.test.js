@@ -19,13 +19,17 @@ describe('Cookbook', () => {
       const myRecipes = myCookbook.listRecipes();
 
       expect(myRecipes).toEqual(['Pizza']);
-
     });
   });
 
   describe('Retrieving a recipe', () => {
     test('should allow the ingredients for a recipe to be retrieved', () => {
+      const myCookbook = new Cookbook();
+      myCookbook.addRecipe('Pancake', ['egg', 'flour', 'milk']);
 
+      const getRecipe = myCookbook.getRecipe('Pancake');
+
+      expect(getRecipe).toEqual(['egg', 'flour', 'milk']);
     });
   });
 
