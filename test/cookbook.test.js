@@ -3,7 +3,11 @@ const { Cookbook } = require('../src/cookbook');
 describe('Cookbook', () => {
   describe('Adding recipes', () => {
     test('should allow a recipe to be added', () => {
+      const myCookbook = new Cookbook();
 
+      myCookbook.addRecipe("Pasta", ['Chilli flakes', 'olive oil', 'parsley', 'garlic']);
+
+      expect(myCookbook.recipes).toEqual({ Pasta: ['Chilli flakes', 'olive oil', 'parsley', 'garlic']});
     });
   });
 
