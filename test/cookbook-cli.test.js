@@ -9,7 +9,7 @@ describe('CookbookCli', () => {
 
       const message = myCookbookCli.add('hotdog', ['meat', 'bread']);
 
-      expect(message).toEqual('Successfully added the following recipe: hotdog')
+      expect(message).toEqual('Successfully added the following recipe: hotdog');
     });
   });
 
@@ -23,13 +23,21 @@ describe('CookbookCli', () => {
 
       const message = myCookbookCli.list();
 
-      expect(message).toEqual(`You have the following recipes: hotdog,Vanila Cake`)
+      expect(message).toEqual(`You have the following recipes: hotdog,Vanila Cake`);
 
     });
   });
 
   describe('Retrieving a recipe', () => {
     test('should display the ingredients required to make the specified recipe', () => {
+      const myCookbook = new Cookbook();
+      const myCookbookCli = new CookbookCli(myCookbook);
+
+      myCookbookCli.add('Tacos', ['tortillas', 'lime', 'cabbage']);
+
+      const message = myCookbookCli.get('Tacos');
+
+      expect(message).toEqual(`The ingredients for Tacos are: tortillas,lime,cabbage`);
 
     });
   });
