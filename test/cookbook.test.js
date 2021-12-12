@@ -13,6 +13,12 @@ describe('Cookbook', () => {
 
   describe('Listing recipes', () => {
     test('should allow the recipes to be listed', () => {
+      const myCookbook = new Cookbook();
+      myCookbook.addRecipe('Pizza', ['bread', 'meat', 'paste']);
+
+      const myRecipes = myCookbook.listRecipes();
+
+      expect(myRecipes).toEqual(['Pizza']);
 
     });
   });
