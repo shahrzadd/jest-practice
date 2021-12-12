@@ -44,7 +44,14 @@ describe('CookbookCli', () => {
 
   describe('Deleting a recipe', () => {
     test('should accept the recipe name and display the correct message', () => {
+      const myCookbook = new Cookbook();
+      const myCookbookCli = new CookbookCli(myCookbook);
 
+      myCookbookCli.add('Christmas Cookies', ['butter', 'sugar', 'egg', 'flour']);
+
+      const message = myCookbookCli.remove('Christmas Cookies');
+
+      expect(message).toEqual(`Successfully removed the following recipe: Christmas Cookies`);
     });
   });
 });
